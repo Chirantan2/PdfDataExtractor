@@ -1,4 +1,3 @@
-# Import necessary libraries
 from selenium.common.exceptions import TimeoutException
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -21,6 +20,8 @@ def download_file(url: str, dir: str) -> bool:
     try:
         # Load webdriver
         chrome_options = webdriver.ChromeOptions()
+
+        # set default download directory
         chrome_options.add_experimental_option('prefs', {'plugins.always_open_pdf_externally': True, "directory_upgrade": True, "safebrowsing.enabled": False,
                                                          "download.default_directory": dir})
         driver = webdriver.Chrome(options=chrome_options)
