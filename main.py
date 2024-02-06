@@ -8,6 +8,8 @@ subfolder = 'file_downloads'
 PATH = os.path.join(home_folder, subfolder)
 
 def main():
+    with open('output.txt', 'w', encoding='utf-8') as f:
+        f.write('')
     try:
         url_list = constants.url
         logger.log_message("Start", 0)
@@ -32,7 +34,7 @@ def main():
             # date
             date = fetch_data.fetch_dates(text)
 
-            with open('output.txt', 'a') as f:
+            with open('output.txt', 'a', encoding='utf-8') as f:
                 f.write(f'+++++++++++++{file_name}+++++++++++++\n')
                 f.write(f'CIN : {cin}\nCIN-Count: {count}\nContact Number: {phone}\nEmail : {email}\nPhoneNumbers : {None}\nPan : {pan}\nDates : {date}\nWebsite : {website}\n\n')
                 f.close()
